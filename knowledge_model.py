@@ -6,11 +6,17 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 class Knowledge(Base):
-	__tablename__ = 'wiki'
-    wiki_id = Column(4,3 primary_key=True)
-    name = Column("articles")
-    year = Column(Integer)
-    finished_lab = Column(Boolean)
+	__tablename__ = 'knowledge'
+	wiki_id = Column(String, primary_key=True)
+	articles = Column(String)
+	topic = Column(String)
+	rating = Column(Integer)
+	def __repr__(self):
+		return ("articles: {}\n"
+    			"topic: {} \n"
+				"rating:{}\n"
+				"wiki_id: {}").format(
+					self.articles, self.topic, self.rating, self.wiki_id)
 
 
 	# Create a table with 4 columns
@@ -21,4 +27,5 @@ class Knowledge(Base):
 	# topic of the article. The last column will be
 	# an integer, representing your rating of the article.
 
-	pass
+dog = Knowledge(wiki_id="1", topic="dog" , articles="dog" , rating ="10")
+print(dog)
