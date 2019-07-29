@@ -6,6 +6,13 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 class Knowledge(Base):
+	__tablename__ = 'wiki'
+    wiki_id = Column(4,3 primary_key=True)
+    name = Column("articles")
+    year = Column(Integer)
+    finished_lab = Column(Boolean)
+
+
 	# Create a table with 4 columns
 	# The first column will be the primary key
 	# The second column should be a string representing
